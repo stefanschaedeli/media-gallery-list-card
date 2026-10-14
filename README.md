@@ -26,7 +26,7 @@ out of the box** — current and future ones.
 - **Inline playback**: tap a row/tile, the clip plays right in the card
 - **Custom title format** (`title_format: DD.MM.YYYY HH:mm`) — timestamps are
   auto-detected in the provider's titles (UniFi Protect, Frigate, ISO filenames,
-  epoch) and re-formatted the way you want
+  epoch) and re-formatted the way you want, incl. month/weekday names (`ddd, MMM D`)
 - **Kiosk rotation**: plays the newest N back-to-back and loops — great for wall
   tablets (starts muted per browser policy, tap-to-unmute)
 - **Built-in source browser**: click through the media tree in the card editor and
@@ -121,6 +121,7 @@ More format examples (same source title as above):
 | `HH:mm:ss` | `16:21:24` |
 | `D.M. h:mm A` | `30.7. 4:21 PM` |
 | `[Clip vom] DD.MM. [um] HH:mm` | `Clip vom 30.07. um 16:21` |
+| `ddd, MMM D, HH:mm:ss` | `Thu, Jul 30, 16:21:24` |
 
 #### How it works
 
@@ -148,6 +149,8 @@ For every listed item the card runs three steps:
    | `DD` / `D` | `30` / `30` | `mm` / `m` | `05` / `5` |
    | `A` / `a` | `PM` / `pm` | `ss` / `s` | `09` / `9` |
    | `MMM` | `Jul` | `ddd` | `Thu` |
+
+   Month and weekday names are English, regardless of the UI language.
 
 3. **Fall back safely.** If no timestamp is found in either field, the raw provider
    title is shown unchanged — a wrong `title_format` can never blank out your list.
