@@ -102,10 +102,10 @@ export function parseItemTimestamp(
   return undefined;
 }
 
-const TOKEN_RE = /\[([^\]]*)\]|YYYY|YY|MMM|MM|M|DD|D|d|HH|H|hh|h|mm|m|ss|s|A|a/g;
+const TOKEN_RE = /\[([^\]]*)\]|YYYY|YY|MMM|MM|M|DD|D|ddd|HH|H|hh|h|mm|m|ss|s|A|a/g;
 
-const months_short = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const days_short = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const MONTHS_SHORT = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const DAYS_SHORT = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
@@ -120,7 +120,7 @@ export function formatDate(date: Date, format: string): string {
       case "YY":
         return pad(date.getFullYear() % 100);
       case "MMM":
-        return months_short[date.getMonth()];
+        return MONTHS_SHORT[date.getMonth()];
       case "MM":
         return pad(date.getMonth() + 1);
       case "M":
@@ -129,8 +129,8 @@ export function formatDate(date: Date, format: string): string {
         return pad(date.getDate());
       case "D":
         return String(date.getDate());
-      case "d":
-        return days_short[date.getDay()];
+      case "ddd":
+        return DAYS_SHORT[date.getDay()];
       case "HH":
         return pad(date.getHours());
       case "H":

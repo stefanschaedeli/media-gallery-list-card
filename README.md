@@ -139,7 +139,7 @@ For every listed item the card runs three steps:
 2. **Render your format.** The tokens below are replaced with the extracted
    date/time; everything else (`.`, `:`, `-`, spaces, …) passes through as-is, and
    square brackets protect literal text that would otherwise be parsed as tokens:
-   `[Clip vom] DD.MM.` → `Clip vom 30.07.`
+   `[Clip vom] DD.MM.` → `Clip vom 30.07.`, `ddd, MMM D, HH:mm:ss` → `Thu, Jul 30, 16:21:24`
 
    | Token | Output | Token | Output |
    | --- | --- | --- | --- |
@@ -147,6 +147,7 @@ For every listed item the card runs three steps:
    | `MM` / `M` | `07` / `7` | `hh` / `h` | `08` / `8` (12 h) |
    | `DD` / `D` | `30` / `30` | `mm` / `m` | `05` / `5` |
    | `A` / `a` | `PM` / `pm` | `ss` / `s` | `09` / `9` |
+   | `MMM` | `Jul` | `ddd` | `Thu` |
 
 3. **Fall back safely.** If no timestamp is found in either field, the raw provider
    title is shown unchanged — a wrong `title_format` can never blank out your list.

@@ -1,6 +1,6 @@
 {
   "name": "media-gallery-list-card",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Home Assistant Lovelace card that lists the newest videos from any media-source library (UniFi Protect, Synology, local media, ...) and plays them inline.",
   "license": "MIT",
   "author": "Stefan Schädeli",
